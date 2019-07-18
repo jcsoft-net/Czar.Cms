@@ -17,8 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore" Version="2.1.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0-preview-20180610-02" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
     <PackageReference Include="xunit" Version="2.3.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
   </ItemGroup>
@@ -26,6 +26,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Czar.Cms.Core\Czar.Cms.Core.csproj" />
     <ProjectReference Include="..\Czar.Cms.IRepository\Czar.Cms.IRepository.csproj" />
+    <ProjectReference Include="..\Czar.Cms.Repository.SqlServer\Czar.Cms.Repository.SqlServer.csproj" />
   </ItemGroup>
 
   <ItemGroup>

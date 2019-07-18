@@ -1,9 +1,6 @@
 ﻿using Czar.Cms.Core.CodeGenerator;
 using Czar.Cms.Core.Models;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace Czar.Cms.Test
@@ -19,8 +16,8 @@ namespace Czar.Cms.Test
             var serviceProvider = Common.BuildServiceForSqlServer();
             var codeGenerator = serviceProvider.GetRequiredService<CodeGenerator>();
             codeGenerator.GenerateTemplateCodesFromDatabase(true);
-            Assert.Equal("MySQL", DatabaseType.MySQL.ToString(), ignoreCase: true);
 
+            Assert.Equal("SQLServer", DatabaseType.SqlServer.ToString(), ignoreCase: true);
         }
     }
 }
