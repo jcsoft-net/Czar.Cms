@@ -347,9 +347,24 @@ namespace Czar.Cms.Core.CodeGenerator
         private string ReadTemplate(string templateName)
         {
             var currentAssembly = Assembly.GetExecutingAssembly();
+
+
+            Assembly assem = Assembly.Load("Czar.Cms.Core"); ;
+
             var content = string.Empty;
 
-            using (var stream = currentAssembly.GetManifestResourceStream($"{currentAssembly.GetName().Name}.CodeTemplate.{templateName}"))
+            //using (var stream = currentAssembly.GetManifestResourceStream($"{currentAssembly.GetName().Name}.CodeTemplate.{templateName}"))
+            //{
+            //    if (stream != null)
+            //    {
+            //        using (var reader = new StreamReader(stream))
+            //        {
+            //            content = reader.ReadToEnd();
+            //        }
+            //    }
+            //}
+
+            using (var stream = assem.GetManifestResourceStream($"{currentAssembly.GetName().Name}.CodeTemplate.{templateName}"))
             {
                 if (stream != null)
                 {
@@ -359,6 +374,7 @@ namespace Czar.Cms.Core.CodeGenerator
                     }
                 }
             }
+
 
             return content;
         }
