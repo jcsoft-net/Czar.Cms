@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="CodeTemplate\ControllerTemplate.txt" />
     <None Remove="CodeTemplate\IRepositoryTemplate.txt" />
     <None Remove="CodeTemplate\IServicesTemplate.txt" />
     <None Remove="CodeTemplate\ModelTemplate.txt" />
@@ -13,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="CodeTemplate\ControllerTemplate.txt" />
     <EmbeddedResource Include="CodeTemplate\IRepositoryTemplate.txt">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>

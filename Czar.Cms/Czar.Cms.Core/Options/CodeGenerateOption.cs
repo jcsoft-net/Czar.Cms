@@ -47,5 +47,10 @@ namespace Czar.Cms.Core.Options
         /// </summary>
         public string ServicesNamespace { get; set; }
 
+        /// <summary>
+        /// 控制器命名空间
+        /// </summary>
+        public string ControllersNamespace { get; set; }
+
     }
 }

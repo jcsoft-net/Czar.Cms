@@ -12,7 +12,7 @@ namespace Czar.Cms.Core.Repository
         protected IDbConnection _dbConnection;
 
         //数据库连接参数
-        protected DbOption dbOption;
+        protected DbOption _dbOption;
 
         #region 同步
 

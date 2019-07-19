@@ -63,14 +63,19 @@ namespace Czar.Cms.Core.CodeGenerator
                 foreach (var table in tables)
                 {
                     GenerateEntity(table, isCoveredExsited);
+
                     if (table.Columns.Any(c => c.IsPrimaryKey))
                     {
                         var pkTypeName = table.Columns.First(m => m.IsPrimaryKey).CSharpType;
+
                         GenerateIRepository(table, pkTypeName, isCoveredExsited);
                         GenerateRepository(table, pkTypeName, isCoveredExsited);
                     }
+
                     GenerateIServices(table, isCoveredExsited);
                     GenerateServices(table, isCoveredExsited);
+
+                    GenerateController(table, isCoveredExsited);
 
                 }
             }
@@ -249,6 +254,36 @@ namespace Czar.Cms.Core.CodeGenerator
             WriteAndSave(fullPath, content);
         }
 
+
+        /// <summary>
+        /// 生成Controller层代码文件
+        /// </summary>
+        /// <param name="modelTypeName"></param>
+        /// <param name="keyTypeName"></param>
+        /// <param name="ifExsitedCovered"></param>
+        private void GenerateController(DbTable table, bool ifExsitedCovered = false)
+        {
+            var controllerPath = _options.OutputPath + Delimiter + "Controllers";
+
+            if (!Directory.Exists(controllerPath))
+            {
+                Directory.CreateDirectory(controllerPath);
+            }
+
+            var fullPath = controllerPath + Delimiter + table.TableName + "Controller.cs";
+
+            if (File.Exists(fullPath) && !ifExsitedCovered)
+                return;
+
+            var content = ReadTemplate("ControllerTemplate.txt");
+
+            content = content.Replace("{ModelsNamespace}", table.TableComment)
+                .Replace("{IServicesNamespace}", _options.IServicesNamespace)
+                .Replace("{ControllersNamespace}", _options.ControllersNamespace)
+                .Replace("{ModelName}", table.TableName);
+
+            WriteAndSave(fullPath, content);
+        }
 
         /// <summary>
         /// 生成属性

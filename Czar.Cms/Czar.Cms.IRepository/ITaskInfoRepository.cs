@@ -1,10 +1,10 @@
 /**
-*　描    述：文章分类                                                    
+*　描    述：定时任务                                                    
 *　作    者：zjf                                              
 *　版    本：1.0   模板代码自动生成                                              
 *　创建时间：2019-07-19 13:50:45                           
 *　命名空间： Czar.Cms.IRepository                                   
-*　接口名称： IArticleCategoryRepository                                      
+*　接口名称： ITaskInfoRepository                                      
 */
 using Czar.Cms.Core.Repository;
 using Czar.Cms.Models;
@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Czar.Cms.IRepository
 {
-    public interface IArticleCategoryRepository : IBaseRepository<ArticleCategory, Int32>
+    public interface ITaskInfoRepository : IBaseRepository<TaskInfo, Int32>
     {
 	     /// <summary>
         /// 逻辑删除返回影响的行数
