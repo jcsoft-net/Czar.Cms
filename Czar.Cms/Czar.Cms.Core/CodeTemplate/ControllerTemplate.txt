@@ -1,0 +1,122 @@
+﻿/**
+*　描    述：{Comment}                                                    
+*　作    者：{Author}                                              
+*　版    本：1.0   模板代码自动生成                                              
+*　创建时间：{GeneratorTime}                           
+*　命名空间：{ControllersNamespace}                                   
+*　控制器名：{ModelName}Controller                                      
+*/
+
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
+using {ModelsNamespace};
+using {IServicesNamespace};
+using Zxw.Framework.NetCore.Attributes;
+using System.Threading.Tasks;
+using Zxw.Framework.NetCore.Models;
+using System.Linq;
+
+namespace {ControllersNamespace}
+{
+    public class {ModelName}Controller : Controller
+    {
+        private I{ModelName}Service {ModelName}Service;
+        
+        public {ModelName}Controller(I{ModelName}Service service)
+        {
+            {ModelName}Service = service ?? throw new ArgumentNullException(nameof(service));
+        }
+
+        #region Views
+
+		public IActionResult Index()
+        {
+            return View();
+        }
+
+        #endregion
+
+        #region Methods
+
+        [AjaxRequestOnly, HttpGet]
+        public Task<IActionResult> GetEntities()
+        {
+            return Task.Factory.StartNew<IActionResult>(() =>
+            {
+                    var rows = {ModelName}Repository.Get().ToList();
+                    return Json(ExcutedResult.SuccessResult(rows));
+            });
+        }
+
+        [AjaxRequestOnly]
+        public Task<IActionResult> GetEntitiesByPaged(int pageSize, int pageIndex)
+        {
+            return Task.Factory.StartNew<IActionResult>(() =>
+            {
+                var total = {ModelName}Repository.Count(m => true);
+                var rows = {ModelName}Repository.GetByPagination(m => true, pageSize, pageIndex, true,
+                    m => m.Id).ToList();
+
+                return Json(PaginationResult.PagedResult(rows, total, pageSize, pageIndex));
+            });
+        }
+
+        /// <summary>
+        /// 新建
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [AjaxRequestOnly,HttpPost,ValidateAntiForgeryToken]
+        public Task<IActionResult> Add({ModelName} model)
+        {
+            return Task.Factory.StartNew<IActionResult>(() =>
+            {
+                if(!ModelState.IsValid)
+                    return Json(ExcutedResult.FailedResult("数据验证失败"));
+
+                {ModelName}Repository.AddAsync(model, false);
+
+                return Json(ExcutedResult.SuccessResult());
+            });
+        }
+
+        /// <summary>
+        /// 编辑
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [AjaxRequestOnly, HttpPost]
+        public Task<IActionResult> Edit({ModelName} model)
+        {
+            return Task.Factory.StartNew<IActionResult>(() =>
+            {
+                if (!ModelState.IsValid)
+                    return Json(ExcutedResult.FailedResult("数据验证失败"));
+
+                {ModelName}Repository.Edit(model, false);
+
+                return Json(ExcutedResult.SuccessResult());
+            });
+        }
+
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [AjaxRequestOnly]
+        public Task<IActionResult> Delete(int id)
+        {
+            return Task.Factory.StartNew<IActionResult>(() =>
+            {
+                {ModelName}Repository.Delete(id, false);
+
+                return Json(ExcutedResult.SuccessResult("成功删除一条数据。"));
+            });
+        }
+
+        #endregion
+	}
+}
