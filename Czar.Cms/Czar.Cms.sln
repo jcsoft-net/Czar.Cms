@@ -15,25 +15,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.Infrastructure", "5.Infra
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6.Test", "6.Test", "{EDD4105A-337B-4A97-9CD2-D547EC3B02DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Czar.Cms.Admin", "Czar.Cms.Admin\Czar.Cms.Admin.csproj", "{8DC8C469-3C13-44F4-A65A-95E53E32F274}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Czar.Cms.Admin", "Czar.Cms.Admin\Czar.Cms.Admin.csproj", "{8DC8C469-3C13-44F4-A65A-95E53E32F274}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Czar.Cms.Site", "Czar.Cms.Site\Czar.Cms.Site.csproj", "{7345F500-95F4-4FB6-9D6C-84E9493576E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Czar.Cms.Site", "Czar.Cms.Site\Czar.Cms.Site.csproj", "{7345F500-95F4-4FB6-9D6C-84E9493576E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Czar.Cms.IServices", "Czar.Cms.IServices\Czar.Cms.IServices.csproj", "{D9232151-DCF0-488C-A740-9A62142CB8C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Czar.Cms.IServices", "Czar.Cms.IServices\Czar.Cms.IServices.csproj", "{D9232151-DCF0-488C-A740-9A62142CB8C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Czar.Cms.Services", "Czar.Cms.Services\Czar.Cms.Services.csproj", "{FE31009F-4125-46A4-9F77-57B6EA83B21D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Czar.Cms.Services", "Czar.Cms.Services\Czar.Cms.Services.csproj", "{FE31009F-4125-46A4-9F77-57B6EA83B21D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Czar.Cms.IRepository", "Czar.Cms.IRepository\Czar.Cms.IRepository.csproj", "{8D0B70BF-FE48-462A-8B67-92FFFDBFE0A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Czar.Cms.IRepository", "Czar.Cms.IRepository\Czar.Cms.IRepository.csproj", "{8D0B70BF-FE48-462A-8B67-92FFFDBFE0A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Czar.Cms.Repository,SqlServer", "Czar.Cms.Repository,SqlServer\Czar.Cms.Repository,SqlServer.csproj", "{B5F930D0-E941-4124-B986-E3EDC7515DBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Czar.Cms.Repository.SqlServer", "Czar.Cms.Repository,SqlServer\Czar.Cms.Repository.SqlServer.csproj", "{B5F930D0-E941-4124-B986-E3EDC7515DBE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Czar.Cms.Models", "Czar.Cms.Models\Czar.Cms.Models.csproj", "{19BD750B-50A0-4798-9D61-A52D32B85EBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Czar.Cms.Models", "Czar.Cms.Models\Czar.Cms.Models.csproj", "{19BD750B-50A0-4798-9D61-A52D32B85EBE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Czar.Cms.ViewModels", "Czar.Cms.ViewModels\Czar.Cms.ViewModels.csproj", "{792427E8-5895-4D5F-BD24-0A1553D55A95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Czar.Cms.ViewModels", "Czar.Cms.ViewModels\Czar.Cms.ViewModels.csproj", "{792427E8-5895-4D5F-BD24-0A1553D55A95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Czar.Cms.Core", "Czar.Cms.Core\Czar.Cms.Core.csproj", "{E3CE58E6-EB55-4CF5-B9F9-DF660F5E5FD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Czar.Cms.Core", "Czar.Cms.Core\Czar.Cms.Core.csproj", "{E3CE58E6-EB55-4CF5-B9F9-DF660F5E5FD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Czar.Cms.Test", "Czar.Cms.Test\Czar.Cms.Test.csproj", "{8B557FBC-3E42-4CA4-A7FF-A4CB6C9918D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Czar.Cms.Test", "Czar.Cms.Test\Czar.Cms.Test.csproj", "{8B557FBC-3E42-4CA4-A7FF-A4CB6C9918D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
