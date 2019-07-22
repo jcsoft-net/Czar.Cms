@@ -23,6 +23,7 @@ namespace Czar.Cms.Repository.SqlServer
         public ArticleCategoryRepository(IOptionsSnapshot<DbOption> options)
         {
             _dbOption = options.Get("CzarCms");
+
             if (_dbOption == null)
             {
                 throw new ArgumentNullException(nameof(DbOption));

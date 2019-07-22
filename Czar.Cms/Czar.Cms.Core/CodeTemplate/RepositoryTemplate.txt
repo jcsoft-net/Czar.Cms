@@ -23,16 +23,19 @@ namespace {RepositoryNamespace}
         public {ModelName}Repository(IOptionsSnapshot<DbOption> options)
         {
             _dbOption =options.Get("CzarCms");
+
             if (_dbOption == null)
             {
                 throw new ArgumentNullException(nameof(DbOption));
             }
+
             _dbConnection = ConnectionFactory.CreateConnection(_dbOption.DbType, _dbOption.ConnectionString);
         }
 
 		public int DeleteLogical(int[] ids)
         {
             string sql = "update {ModelName} set IsDelete=1 where Id in @Ids";
+
             return _dbConnection.Execute(sql, new
             {
                 Ids = ids
@@ -42,6 +45,7 @@ namespace {RepositoryNamespace}
         public async Task<int> DeleteLogicalAsync(int[] ids)
         {
             string sql = "update {ModelName} set IsDelete=1 where Id in @Ids";
+
             return await _dbConnection.ExecuteAsync(sql, new
             {
                 Ids = ids
