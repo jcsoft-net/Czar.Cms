@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Czar.Cms.Models
 {
-    public class Menu
+    public partial class Menu
     {
         public Menu()
         {

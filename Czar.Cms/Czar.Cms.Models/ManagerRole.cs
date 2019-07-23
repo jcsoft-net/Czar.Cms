@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Czar.Cms.Models
 {
-    public class ManagerRole
+    public partial class ManagerRole
     {
         public ManagerRole()
         {

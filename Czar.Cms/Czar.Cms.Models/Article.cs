@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Czar.Cms.Models
 {
-    public class Article
+    public partial class Article
     {
         public int Id { get; set; }
 

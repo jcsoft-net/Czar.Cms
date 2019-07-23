@@ -22,5 +22,10 @@ namespace Czar.Cms.Services
         {
             _repository = repository;
         }
+
+        public int[] GetIdsByRoleId(int RoleId)
+        {
+            return _repository.GetIdsByRoleId(RoleId);
+        }
     }
 }

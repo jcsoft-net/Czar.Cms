@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Czar.Cms.Models
 {
-    public class RolePermission
+    public partial class RolePermission
     {
         public int Id { get; set; }
 

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Czar.Cms.Models
 {
 
-    public class ArticleCategory
+    public partial class ArticleCategory
     {
 
         public ArticleCategory()

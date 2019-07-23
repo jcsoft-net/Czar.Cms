@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Czar.Cms.Models
 {
-    public class ManagerLog
+    public partial class ManagerLog
     {
         public int Id { get; set; }
 

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Czar.Cms.Models
 {
-    public class TaskInfo
+    public partial class TaskInfo
     {
         public int Id { get; set; }
 
