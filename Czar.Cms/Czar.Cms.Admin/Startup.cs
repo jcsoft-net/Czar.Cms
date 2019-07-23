@@ -64,7 +64,7 @@ namespace Czar.Cms.Admin
                 options.IdleTimeout = TimeSpan.FromMinutes(5);
                 options.Cookie.HttpOnly = true;
             });
-
+                        
             services.AddAntiforgery(options =>
             {
                 // Set Cookie properties using CookieBuilder properties†.
@@ -163,6 +163,7 @@ namespace Czar.Cms.Admin
                 logger.Error(ex, nameof(Startup));
             }
 
+            app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseSession();
             app.UseAuthentication();

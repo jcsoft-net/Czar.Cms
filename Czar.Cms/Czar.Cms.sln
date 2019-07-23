@@ -35,7 +35,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Czar.Cms.Core", "Czar.Cms.C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Czar.Cms.Test", "Czar.Cms.Test\Czar.Cms.Test.csproj", "{8B557FBC-3E42-4CA4-A7FF-A4CB6C9918D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Czar.Cms.Quartz", "Czar.Cms.Quartz\Czar.Cms.Quartz.csproj", "{BD35A454-5792-4C8F-9D96-5FDF35D4AFFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Czar.Cms.Quartz", "Czar.Cms.Quartz\Czar.Cms.Quartz.csproj", "{BD35A454-5792-4C8F-9D96-5FDF35D4AFFD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

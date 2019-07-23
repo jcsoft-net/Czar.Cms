@@ -9,13 +9,13 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
-    <link rel="stylesheet" href="~/layui/css/layui.css" media="all" />
-    <link rel="stylesheet" href="~/css/public.css" media="all" />
+    @*<link rel="stylesheet" href="~/layui/css/layui.css" media="all" />
+    <link rel="stylesheet" href="~/css/public.css" media="all" />*@
     @RenderSection("head", false)
 </head>
 <body class="childrenBody">
     @RenderBody()
 
-    @RenderSection("Scripts", false)
+    @RenderSection("Scripts", required: false)
 </body>
 </html>
