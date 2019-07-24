@@ -47,7 +47,7 @@ namespace Czar.Cms.Admin
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
+                options.CheckConsentNeeded = context => false;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
@@ -125,6 +125,7 @@ namespace Czar.Cms.Admin
             {
                 var jobInfoAppService = app.ApplicationServices.GetRequiredService<ITaskInfoService>();
                 var scheduleCenter = app.ApplicationServices.GetRequiredService<ScheduleCenter>();
+
                 applicationLifetime.ApplicationStarted.Register(async () =>
                 {
                     var list = await jobInfoAppService.GetListByJobStatuAsync((int)TaskInfoStatus.SystemStopped);
@@ -138,10 +139,12 @@ namespace Czar.Cms.Admin
                                                     x.Assembly,
                                                     x.Cron);
                         });
+
                         await jobInfoAppService.ResumeSystemStoppedAsync();
                     }
 
                 });
+
                 applicationLifetime.ApplicationStopping.Register(async () =>
                 {
                     var list = await jobInfoAppService.GetListByJobStatuAsync((int)TaskInfoStatus.Running);

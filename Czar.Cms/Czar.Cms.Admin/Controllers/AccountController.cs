@@ -50,6 +50,7 @@ namespace Czar.Cms.Admin.Controllers
 
             #region 判断错误次数
             var ErrorTimes = HttpContext.Session.GetInt32(ManagerSignInErrorTimes);
+
             if (ErrorTimes == null)
             {
                 HttpContext.Session.SetInt32(ManagerSignInErrorTimes, 1);
@@ -59,6 +60,7 @@ namespace Czar.Cms.Admin.Controllers
             {
                 HttpContext.Session.SetInt32(ManagerSignInErrorTimes, ErrorTimes.Value + 1);
             }
+
             if (ErrorTimes > MaxErrorTimes)
             {
                 result.ResultCode = ResultCodeAddMsgKeys.SignInErrorTimesOverTimesCode;
@@ -70,6 +72,7 @@ namespace Czar.Cms.Admin.Controllers
             #region 再次属性判断
             LoginModelValidation validation = new LoginModelValidation();
             ValidationResult results = validation.Validate(model);
+
             if (!results.IsValid)
             {
                 result.ResultCode = ResultCodeAddMsgKeys.CommonModelStateInvalidCode;
@@ -79,6 +82,7 @@ namespace Czar.Cms.Admin.Controllers
 
             model.Ip = HttpContext.GetClientUserIp();
             var manager = await _service.SignInAsync(model);
+
             if (manager == null)
             {
                 result.ResultCode = ResultCodeAddMsgKeys.SignInPasswordOrUserNameErrorCode;
@@ -110,6 +114,7 @@ namespace Czar.Cms.Admin.Controllers
                     CookieAuthenticationDefaults.AuthenticationScheme,
                     new ClaimsPrincipal(claimsIdentity));
             }
+
             return JsonHelper.ObjectToJSON(result);
         }
 

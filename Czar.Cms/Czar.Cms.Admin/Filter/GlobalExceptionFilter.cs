@@ -15,7 +15,7 @@ namespace Czar.Cms.Admin.Filter
 
         public void OnException(ExceptionContext context)
         {
-            logger.Error(context.Exception);
+            //logger.Error(context.Exception);
 
 
             var result = new BaseResult()
