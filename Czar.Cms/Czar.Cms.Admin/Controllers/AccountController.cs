@@ -95,6 +95,7 @@ namespace Czar.Cms.Admin.Controllers
             }
             else
             {
+                //.net core 认证信息
                 var claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.Name, manager.UserName),
@@ -108,11 +109,12 @@ namespace Czar.Cms.Admin.Controllers
                     new Claim("NickName",manager.NickName ?? "匿名"),
                     new Claim("Avatar",manager.Avatar ?? "/images/userface1.jpg"),
                 };
-                var claimsIdentity = new ClaimsIdentity(
-                    claims, CookieAuthenticationDefaults.AuthenticationScheme);
-                await HttpContext.SignInAsync(
-                    CookieAuthenticationDefaults.AuthenticationScheme,
-                    new ClaimsPrincipal(claimsIdentity));
+
+                //.net core 生成认证
+                var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+                //.net core 认证持有者ClaimsPrincipal，生成Cookie
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
             }
 
             return JsonHelper.ObjectToJSON(result);

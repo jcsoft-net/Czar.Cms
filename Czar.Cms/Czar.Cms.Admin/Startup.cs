@@ -39,9 +39,12 @@ namespace Czar.Cms.Admin
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
+        //配置应用服务
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+  
             services.Configure<DbOption>("CzarCms", Configuration.GetSection("DbOpion"));
+
             services.AddMemoryCache();
 
             services.Configure<CookiePolicyOptions>(options =>
@@ -64,7 +67,7 @@ namespace Czar.Cms.Admin
                 options.IdleTimeout = TimeSpan.FromMinutes(5);
                 options.Cookie.HttpOnly = true;
             });
-                        
+
             services.AddAntiforgery(options =>
             {
                 // Set Cookie properties using CookieBuilder properties†.
@@ -91,12 +94,17 @@ namespace Czar.Cms.Admin
             //DI了AutoMapper中需要用到的服务，其中包括AutoMapper的配置类 Profile
 
             services.AddAutoMapper();
+
             services.AddSingleton<ScheduleCenter>();
+
             var builder = new ContainerBuilder();
+
             builder.Populate(services);
+
             builder.RegisterAssemblyTypes(typeof(ManagerRoleRepository).Assembly)
                    .Where(t => t.Name.EndsWith("Repository"))
                    .AsImplementedInterfaces();
+
             builder.RegisterAssemblyTypes(typeof(ManagerRoleService).Assembly)
                  .Where(t => t.Name.EndsWith("Service"))
                  .AsImplementedInterfaces();
@@ -105,6 +113,7 @@ namespace Czar.Cms.Admin
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        //使用此方法配置HTTP请求管道
         public void Configure(IApplicationBuilder app,
             IHostingEnvironment env,
             ILoggerFactory loggerFactory,
@@ -169,7 +178,12 @@ namespace Czar.Cms.Admin
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseSession();
+
+            //在一般的asp.net core web 项目中，我们一般把身份认证中间件放在 静态文件中间件之后，Mvc中间件之前
+            //这样做的目的很简单，仅对需要认证的部分做认证
+            //在http请求到达 mvc中间件之前，也就是进入我们写的逻辑代码之前，身份认证就结束了，也就是说，身份认证不能在 controller action中控制
             app.UseAuthentication();
+
             //add NLog to ASP.NET Core
             loggerFactory.AddNLog();
 
